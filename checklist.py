@@ -24,44 +24,32 @@ def select(function_code):
     if function_code == "C":
         input_item = user_input("Input item:")
         create(input_item)
+        running = True
 
     # Read item
     elif function_code == "R":
-        item_index = user_input("Index Number?")
+        item_index = int(user_input("Index Number?"))
         read(item_index)
+        running = True
 
     # Print all items
     elif function_code == "P":
         list_all_items()
+        running = True
 
     elif function_code == "Q":
         return False
 
     else:
         print("Unknown Option")
+
 def test():
     create("purple sox")
     create("red cloak")
-
-    #print(read(0))
-    #print(read(1))
-
     update(0, "purple socks")
     destroy(1)
-
-    #print(read(0))
-    #print(read(1))
-    #list_all_items()
-    if select("C"):
-        list_all_items()
-    elif select("R"):
-        list_all_items()
-    elif select("P"):
-        list_all_items()
-    elif select("Q"):
-        list_all_items()
-
 test()
+
 running = True
 while running:
     selection = user_input("Press C to add to list, R to Read from list, P to display list, and Q to quit")
