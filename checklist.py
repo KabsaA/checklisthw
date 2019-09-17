@@ -14,28 +14,29 @@ def destroy(index): #destroy
 def list_all_items():
     index = 0
     for list_item in checklist:
-        print(str(index) + " " + list_item)
+        print(str(index) + " " + list_item) #loops through checklist and prints each element
         index += 1
 def user_input(prompt):
     user_input = input(prompt)
     return user_input
+
 def mark_completed(index):
     for i in range(len(checklist)):
         if index == i:
-            print(update(index,"√"+str(read(index))))
+            print(update(index,"√"+str(read(index)))) #adding check in front of items
 
 def unmarked(index):
-    for i in range(len(checklist)):
+    for i in range(len(checklist)): #looping through elements in checklist
         if index == i:
             string = read(index)
             if string[0] == "√":
-                replacement = string.replace("√", "")
+                replacement = string.replace("√", "") #replacing checkmark
                 update (index, replacement)
 def checkIndex(index):
     if (index < len(checklist) and index >= 0):
         return True
     else:
-        print("Please fix index error")
+        print("Please fix index error") #catching index errors
 
 def select(function_code):
     if function_code == "C" or function_code == "c":
